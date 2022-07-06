@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Poiret One', cursive; -->
+    <!-- -------------------------------------------------------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Tangerine', cursive; -->
+    <!-- -------------------------------------------------------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Damion&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Damion', cursive; -->
+    <!-- -------------------------------------------------------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Rubik', sans-serif; -->
+    <!-- fonts -->
+
+    <!-- font awasome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- font awasome -->
+
+    <!-- animeJs -->
+    <!--  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--  -->
+    <!-- animeJs -->
+
+    <!-- JQuery -->
+    <script src="../Js/jquery-3.6.0.min.js"></script>
+    <!-- JQuery -->
+
+    <link rel="shortcut icon" href="../Images/bombIcon.png" />
+    <script src="../Js/mine.js"></script>
+    <link rel="stylesheet" href="../Css/mine.css" />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper</title>
+  </head>
+
+  <body>
+    <section id="loadPage"><div id="loadingBoxContainer"></div></section>
+    <section id="loseScreenContainer">
+      <div id="loseScreen">
+        <div>YOU LOSE</div>
+        <div></div>
+        <div id="playAgainDiv" onclick="startGameAgain()">Play Again</div>
+      </div>
+    </section>
+    <section id="winScreenContainer">
+      <div id="winScreen">
+        <div>CONGRATULATIONS YOU WON</div>
+        <div></div>
+        <div id="playAgainDiv" onclick="startGameAgain()">Play Again</div>
+      </div>
+    </section>
+    <section id="main">
+      <section id="leftScreen">
+        <div id="timeContainer">
+          <button id="pauseButton" onclick="playPauseToggle(this)"></button>
+          <i
+            id="hourglassIcon"
+            class="fas fa-hourglass-end end"
+            style="font-size: 36px; margin-right: 10px"
+          ></i>
+          <div id="counter">Time: 0s</div>
+        </div>
+        <div id="flagDivContainer">
+          <div id="flagDiv">50</div>
+        </div>
+      </section>
+      <section id="playScreen">
+        <div id="title">Mine Sweeper</div>
+        <section id="boxContainer"></section>
+      </section>
+      <section id="rightScreen">
+        <div class="dropdown">
+          <i class="fas fa-chevron-circle-right" style="font-size: 36px"></i>
+          Difficulty
+          <i class="fas fa-chevron-circle-left" style="font-size: 36px"></i>
+          <div class="dropdownContent">
+            <div
+              class="dropdownContentValue"
+              id="easy"
+              onclick="changeDifficulty(this.id)"
+            >
+              Easy
+            </div>
+            <div
+              class="dropdownContentValue"
+              id="medium"
+              onclick="changeDifficulty(this.id)"
+            >
+              &#x2022; Medium
+            </div>
+            <div
+              class="dropdownContentValue"
+              id="hard"
+              onclick="changeDifficulty(this.id)"
+            >
+              Hard
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>
+
+<script>
+  $(function () {
+    // check media to arrange left and right divs
+    checkResize();
+
+    // load page with animation
+    loadPage(boxSize, totalR, totalC);
+
+    // create boxes
+    createBoxes(totalR, totalC);
+
+    // change the color of the even number boxes
+    changeColors(totalR, totalC);
+
+    // arrange container width dynamically
+    changeContainerWidth(totalR, totalC);
+  });
+</script>
