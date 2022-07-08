@@ -14,7 +14,7 @@ section#loadPage {
 }
 #loadingBoxContainer {
   position: absolute;
-  top: 6.5%;
+  top: 9.3%;
 }
 /* Load Page */
 /* ------------------------------------------- */
@@ -70,6 +70,7 @@ section#rightScreen {
   left: 13%;
   top: 31%;
   font-size: 200%;
+  user-select: none;
 }
 
 .playbutton {

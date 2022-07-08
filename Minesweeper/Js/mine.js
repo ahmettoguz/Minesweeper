@@ -2,9 +2,9 @@
 let timeResult = 0;
 let displayTime = "";
 var isFirstClick = true;
-let totalR = 16;
-let totalC = 16;
-let mineCount = 50;
+let totalR = 15;
+let totalC = 15;
+let mineCount = 35;
 let gameDifficulty = "medium";
 gameStatus = "play";
 boxSize = 35;
@@ -533,9 +533,9 @@ function changeDifficulty(element) {
       $("#medium").html("Medium");
       $("#easy").html("Easy");
     } else if (element == "medium") {
-      totalR = 16;
-      totalC = 16;
-      mineCount = 50;
+      totalR = 15;
+      totalC = 15;
+      mineCount = 35;
       boxSize = 35;
       createBoxes(totalR, totalC);
       gameDifficulty = "medium";
