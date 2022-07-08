@@ -9,10 +9,10 @@ let gameDifficulty = "medium";
 gameStatus = "play";
 boxSize = 35;
 flagCount = 0;
-winSound = new Audio("/audio/win.mp3");
-loseSound = new Audio("/audio/lose.mp3");
-ClickSound = new Audio("/audio/click.mp3");
-flagSound = new Audio("/audio/flag.mp3");
+winSound = new Audio("../audio/win.mp3");
+loseSound = new Audio("../audio/lose.mp3");
+ClickSound = new Audio("../audio/click.mp3");
+flagSound = new Audio("../audio/flag.mp3");
 
 function changeContainerWidth(totalR, totalC) {
   let value = boxSize * totalC;
