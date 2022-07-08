@@ -14,6 +14,7 @@ section#loadPage {
 }
 #loadingBoxContainer {
   position: relative;
+  top: -0.8%;
 }
 /* Load Page */
 /* ------------------------------------------- */
@@ -45,7 +46,6 @@ html {
 section#main,
 #loadPage {
   height: 100%;
-  top: -0.8%;
 }
 
 section#leftScreen,
