@@ -11,7 +11,7 @@ boxSize = 35;
 flagCount = 0;
 winSound = new Audio("../audio/win.mp3");
 loseSound = new Audio("../audio/lose.mp3");
-ClickSound = new Audio("../audio/click.mp3");
+clickSound = new Audio("../audio/click.mp3");
 flagSound = new Audio("../audio/flag.mp3");
 
 function changeContainerWidth(totalR, totalC) {
@@ -152,7 +152,7 @@ function divClicked(divInfo, totalR, totalC) {
   // check the game status if I lose or win, I shouldn't be able to open new box
   if (gameStatus == "play") {
     // play click sound
-    ClickSound.play();
+    clickSound.play();
 
     // I am assinging mines with first click so this if statement does this task
     if (isFirstClick == true) {
