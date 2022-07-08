@@ -9,6 +9,10 @@ let gameDifficulty = "medium";
 gameStatus = "play";
 boxSize = 35;
 flagCount = 0;
+winSound = new Audio("/audio/win.mp3");
+loseSound = new Audio("/audio/lose.mp3");
+ClickSound = new Audio("/audio/click.mp3");
+flagSound = new Audio("/audio/flag.mp3");
 
 function changeContainerWidth(totalR, totalC) {
   let value = boxSize * totalC;
@@ -147,6 +151,9 @@ function dispNeighboorMines() {
 function divClicked(divInfo, totalR, totalC) {
   // check the game status if I lose or win, I shouldn't be able to open new box
   if (gameStatus == "play") {
+    // play click sound
+    ClickSound.play();
+
     // I am assinging mines with first click so this if statement does this task
     if (isFirstClick == true) {
       // start timer and change icon
@@ -271,6 +278,9 @@ function divClicked(divInfo, totalR, totalC) {
 }
 
 function boomMines(boomid) {
+  // play sound
+  loseSound.play();
+
   let animTime;
   if (gameDifficulty == "easy") animTime = 200;
   else if (gameDifficulty == "medium") animTime = 50;
@@ -311,6 +321,7 @@ function boomMines(boomid) {
 }
 
 function dispWinScreen() {
+  winSound.play();
   $("#winScreenContainer").fadeIn(1000);
   $("#winScreen div:nth-child(2)").html(convertTime(timeResult));
   $("#pauseButton").toggleClass("playbutton");
@@ -362,6 +373,9 @@ $(document).on("contextmenu", ".box, html", function (e) {
   if (gameStatus == "play") {
     // We cannot put flag in the first click
     if (isFirstClick == false) {
+      // play flag sound
+      flagSound.play();
+
       if ($(this).hasClass("box") && !$(this).hasClass("open")) {
         $(this).toggleClass("flag");
       }
